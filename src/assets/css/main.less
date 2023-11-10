@@ -1,3 +1,24 @@
+/** define colors **/
+:root {
+  --bg-content: #fff;
+  --bg-navigation: #000;
+  --bg-highlight: #539ef4;
+  --fg-content: #000;
+  --fg-navigation: #fff;
+  --fg-highlight: #fff;
+}
+/** dark mode **/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-content: #0d1117;
+    --bg-navigation: #161b22;
+    --bg-highlight: #539ef4;
+    --fg-content: #c9d1d9;
+    --fg-navigation: #f0f6fc;
+    --fg-highlight: #000;
+  }
+}
+
 /** global **/
 html { font-size: 16px; }
 
@@ -62,7 +83,7 @@ body { display: flex; flex-direction: column; }
                     img { cursor: pointer !important; }
                     i.user { font-size: 1.5em; vertical-align: text-bottom; color: rgba(0,0,0,.6); }
                     img + i, i + i {
-                        color: lightblue;
+                        color: var(--bg-highlight);
                         position: relative;
                         left: -10px;
                         bottom: -10px;
@@ -151,7 +172,7 @@ body { display: flex; flex-direction: column; }
         width: 7rem;
         height: 7rem;
         object-fit: cover;
-        background-color: #ffffffa0;
+        background-color: var(--bg-content);
         border-radius: 3.5rem;
         border: 3px solid white;
     }
@@ -159,7 +180,7 @@ body { display: flex; flex-direction: column; }
         position: absolute;
         bottom: 1.5rem;
         left: 1.5rem;
-        color: rgba(0,0,0,.6);
+        color: var(--fg-content);
         line-height: 5rem;
         font-size: 5rem;
     }
@@ -196,7 +217,7 @@ body { display: flex; flex-direction: column; }
         width: 4rem;
         height: 4rem;
         object-fit: cover;
-        background-color: #ffffffa0;
+        background-color: var(--bg-content);
         border-radius: 2rem;
         border: 2px solid white;
     }
@@ -204,7 +225,7 @@ body { display: flex; flex-direction: column; }
         position: absolute;
         bottom: 1.5rem;
         left: 1.5rem;
-        color: rgba(0,0,0,.6);
+        color: var(--fg-content);
         line-height: 3rem;
         font-size: 3rem;
     }
@@ -233,15 +254,15 @@ body { display: flex; flex-direction: column; }
 /* additional button styles */
 /* used in posts in the timeline */
 .ui.iconic.button { background: transparent none !important; padding: 0; margin: 0; }
-.ui.iconic.blue.button { color: #2185d0 !important; }
+.ui.iconic.blue.button { color: var(--bg-highlight) !important; }
 /* used on social actions */
-.ui.accept.button { background: #21ba45 !important; color: #fff !important; }
-.ui.reject.button { background: #db2828 !important; color: #fff !important; }
+.ui.accept.button { background: var(--bg-highlight) !important; color: var(--fg-highlight) !important; }
+.ui.reject.button { background: var(--bg-reject) !important; color: var(--fg-highlight) !important; }
 /* used on the timeline and elsewhere */
-.ui.dangerous.button { color: #ff2733 !important; }
-.ui.dangerous.button:hover { background-color: #f41824 !important; color: #fff !important; transition: 0.2s color ease; }
+.ui.dangerous.button { color: var(--bg-danger) !important; }
+.ui.dangerous.button:hover { background-color: var(--bg-reject) !important; color: var(--fg-highlight) !important; transition: 0.2s color ease; }
 .ui.dangerous.iconic.button { background-color: transparent !important; color: rgba(0,0,0,.6) !important; }
-.ui.dangerous.iconic.button:hover { color: #ff2733 !important; transition: 0.2s color ease; }
+.ui.dangerous.iconic.button:hover { color: var(--bg-danger) !important; transition: 0.2s color ease; }
 
 /* additional styling for modals */
 .ui.modal > .header > i { margin-right: 1.0rem; }
@@ -254,7 +275,7 @@ body { display: flex; flex-direction: column; }
         width: 2.05rem; height: 1.0rem;
         &:checked {
             ~ label {
-                color: #2185d0 !important;
+                color: var(--bg-highlight) !important;
                 &::after { left: 1.15rem; }
             }
         }
@@ -310,7 +331,7 @@ trix-editor {
 
 /** filter terms **/
 .ui.filter.term > .wildcard {
-    background-color: #eee;
+    background-color: var(--bg-content);
     padding: 0 0.2em;
     margin: 0 0.1em;
 }
